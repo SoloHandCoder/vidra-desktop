@@ -10,7 +10,8 @@
 const net = require("net");
 const path = require("path");
 
-const CLIENT_ID = "1522558650076627076";
+// Vidra's own Discord application (Rich Presence art assets: "vidra", "vidra_badge")
+const CLIENT_ID = "1573827239001460777";
 
 const MIN_SEND_INTERVAL_MS = 15000;
 // How long to wait before retrying a failed/absent Discord connection.
