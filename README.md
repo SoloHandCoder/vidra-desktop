@@ -5,12 +5,14 @@
 <p align="center">
   <a href="https://github.com/SoloHandCoder/vidra-desktop/releases/latest"><img src="https://img.shields.io/github/v/release/SoloHandCoder/vidra-desktop?style=for-the-badge&label=latest&color=E50914" alt="Latest release"></a>
   <a href="https://github.com/SoloHandCoder/vidra-desktop/releases"><img src="https://img.shields.io/github/downloads/SoloHandCoder/vidra-desktop/total?style=for-the-badge&color=222" alt="Downloads"></a>
-  <img src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="Windows 10 and 11">
+  <img src="https://img.shields.io/badge/Windows%20%7C%20macOS%20%7C%20Linux-0078D4?style=for-the-badge" alt="Windows, macOS and Linux">
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL--3.0-222?style=for-the-badge" alt="GPL-3.0"></a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/SoloHandCoder/vidra-desktop/releases/latest"><img src="https://img.shields.io/badge/Download_for_Windows-E50914?style=for-the-badge&logo=windows&logoColor=white" alt="Download for Windows" height="44"></a>
+  <a href="https://github.com/SoloHandCoder/vidra-desktop/releases/latest"><img src="https://img.shields.io/badge/Windows-E50914?style=for-the-badge&logo=windows&logoColor=white" alt="Download for Windows" height="40"></a>
+  <a href="https://github.com/SoloHandCoder/vidra-desktop/releases/latest"><img src="https://img.shields.io/badge/macOS-E50914?style=for-the-badge&logo=apple&logoColor=white" alt="Download for macOS" height="40"></a>
+  <a href="https://github.com/SoloHandCoder/vidra-desktop/releases/latest"><img src="https://img.shields.io/badge/Linux-E50914?style=for-the-badge&logo=linux&logoColor=white" alt="Download for Linux" height="40"></a>
 </p>
 
 <p align="center">
@@ -52,7 +54,7 @@ Eleven themes plus Auto, any accent colour, subtitle size, colour and timing, an
 Release reminders, a calendar of what's coming, Trakt sync, watch‑time goals and a yearly recap card.
 
 **🛡️ Clean and fast**<br>
-Ads and trackers are blocked, popups can't hijack the player, and it streams straight from the source. Chromecast and taskbar shortcuts included.
+Ads and trackers are blocked, popups can't hijack the player, and it streams straight from the source. Chromecast, taskbar shortcuts and Discord status included.
 
 </td>
 </tr>
@@ -82,7 +84,7 @@ Ads and trackers are blocked, popups can't hijack the player, and it streams str
 </p>
 
 1. Open a movie or show and click **Watch party → Start a party**.
-2. Click **Invite** and send the link, or just the code. Friends can join from Windows, Android or iPhone.
+2. Click **Invite** and send the link, or just the code. Friends can join from Windows, Mac, Linux, Android or iPhone.
 3. Watch in sync. Messages and reactions pop up over the video.
 
 **The host** decides who controls playback, runs a **ready check** so everyone starts together, keeps the **queue** of what's next and can start a **poll** about it.
@@ -110,10 +112,33 @@ Ads and trackers are blocked, popups can't hijack the player, and it streams str
 ## 💻 Install
 
 ### Windows
-Download the latest **`Vidra-Setup-*.exe`** from **[Releases](https://github.com/SoloHandCoder/vidra-desktop/releases/latest)** and run it. Updates are built in (Settings → Check for updates).
+Download the latest **`Vidra-Setup-*.exe`** from **[Releases](https://github.com/SoloHandCoder/vidra-desktop/releases/latest)** and run it.
 
-### macOS and Linux
-There are no ready-made builds yet, but you can build them yourself (see [Building from source](#-building-from-source)): `npm run dist:mac`, `dist:appimage`, `dist:deb`, `dist:arch` or `dist:rpm`.
+Updates are built in on every system: Settings → **Check for updates**.
+
+### macOS
+Download **`Vidra-*-universal.dmg`** (Intel and Apple Silicon), open it and drag Vidra to Applications.
+
+Vidra isn't signed with an Apple developer certificate, so the first time macOS may say it **"can't be opened"** or **"is damaged"**. Right-click Vidra in Applications → **Open** → **Open**. If macOS still refuses, run this once in Terminal:
+```bash
+xattr -cr /Applications/Vidra.app
+```
+
+### Linux
+Pick the file for your system from **[Releases](https://github.com/SoloHandCoder/vidra-desktop/releases/latest)**:
+```bash
+# any distro: AppImage (also works with Gear Lever)
+chmod +x Vidra-*-x86_64.AppImage && ./Vidra-*-x86_64.AppImage
+
+# Debian, Ubuntu, Mint
+sudo apt install ./Vidra-*-amd64.deb
+
+# Fedora, openSUSE
+sudo dnf install ./Vidra-*-x86_64.rpm
+
+# Arch, Manjaro
+sudo pacman -U Vidra-*-x86_64.pacman
+```
 
 ### First start
 Paste your free **TMDB read access token** ([how to get one](tmdb-tutorial.md)). It's stored on your computer and used to load titles, posters and info. Subtitles from Wyzie need a free key too ([guide](wyzie-tutorial.md)).
