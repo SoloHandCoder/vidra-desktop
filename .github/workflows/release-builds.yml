@@ -1,0 +1,76 @@
+name: macOS and Linux builds
+
+# Builds the macOS (.dmg) and Linux (.AppImage, .deb, .rpm, .pacman) versions
+# and attaches them to the GitHub release. Runs when a release is published
+# (the Windows installer is attached when the release is created), or by hand
+# for an existing release tag.
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Release tag to build and attach to (for example v2.22.0)"
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: macos-latest
+            script: dist:mac
+          - os: ubuntu-latest
+            script: dist:linux
+    runs-on: ${{ matrix.os }}
+    env:
+      TAG: ${{ github.event.release.tag_name || inputs.tag }}
+      GH_TOKEN: ${{ github.token }}
+      # no Apple signing certificate: build unsigned
+      CSC_IDENTITY_AUTO_DISCOVERY: "false"
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.TAG }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Linux packaging tools
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y rpm libarchive-tools
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run ${{ matrix.script }}
+
+      - name: Name the files
+        shell: bash
+        run: |
+          V="${TAG#v}"
+          mkdir -p out
+          shopt -s nullglob
+          for f in dist/*.dmg;      do cp "$f" "out/Vidra-$V-universal.dmg"; done
+          for f in dist/*.AppImage; do cp "$f" "out/Vidra-$V-x86_64.AppImage"; done
+          for f in dist/*.deb;      do cp "$f" "out/Vidra-$V-amd64.deb"; done
+          for f in dist/*.rpm;      do cp "$f" "out/Vidra-$V-x86_64.rpm"; done
+          for f in dist/*.pacman;   do cp "$f" "out/Vidra-$V-x86_64.pacman"; done
+          ls -la out
+          test -n "$(ls out)"
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: vidra-${{ runner.os }}
+          path: out/*
+
+      - name: Attach to the release
+        shell: bash
+        run: gh release upload "$TAG" out/* --clobber -R "$GITHUB_REPOSITORY"
