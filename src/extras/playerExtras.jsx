@@ -8,6 +8,7 @@ import { createPortal } from "react-dom";
 import { trackWatchSecond } from "./libraryExtras.js";
 import { traktScrobble } from "./trakt.js";
 import { reportPlayer, setPartyPlayer } from "./party.js";
+import { noteWatching } from "./handoff.js";
 
 export const STYLE_KEY = "streambert_subtitleStyle"; // same key as the Android player
 const OFFSET_PREFIX = "streambert_subOffset_";
@@ -176,6 +177,7 @@ export function usePlayerExtras({ webviewRef, active, info, offsetKey }) {
         inf2?.id ? { id: inf2.id, media_type: inf2.media_type, title: inf2.title, season: inf2.season, episode: inf2.episode } : null,
         r && r.d > 0 ? { playing: !!r.playing, t: r.t } : null,
       );
+      if (inf2?.id && r && r.d > 0) noteWatching(inf2, { playing: !!r.playing, t: r.t, d: r.d });
     };
     // jump to a time in whatever frame holds the video (used by "Skip intro")
     window.__sbSeekPlayer = (t) => {

@@ -1767,8 +1767,37 @@ export default function TVPage({
       // Never autoplay an episode that has not aired yet
       return isUnreleased(candidate.air_date) ? null : candidate;
     }
+    // last episode of the season → episode 1 of the next season (if it's out)
+    if (idx >= 0 && idx === currentSeasonEpisodes.length - 1 && selectedSeason > 0) {
+      const next = (seasons || []).find((s) => s.season_number === selectedSeason + 1);
+      if (!next || (next.air_date && isUnreleased(next.air_date)) || next.episode_count === 0) return null;
+      return {
+        episode_number: 1,
+        name: next.name && !/^season \d+$/i.test(next.name) ? `${next.name} · Episode 1` : `Season ${next.season_number} · Episode 1`,
+        still_path: d?.backdrop_path || null,
+        _nextSeason: next.season_number,
+      };
+    }
     return null;
-  }, [selectedEp, currentSeasonEpisodes]);
+  }, [selectedEp, currentSeasonEpisodes, seasons, selectedSeason, d?.backdrop_path]);
+
+  // play an episode of another season once that season's episodes have loaded
+  const pendingPlayRef = useRef(null);
+  const playNextEpisode = useCallback(
+    (ep) => {
+      if (!ep?._nextSeason) return playEpisode(ep);
+      pendingPlayRef.current = { season: ep._nextSeason, episode: 1 };
+      setSelectedSeason(ep._nextSeason);
+    },
+    [playEpisode],
+  );
+  useEffect(() => {
+    const want = pendingPlayRef.current;
+    if (!want || want.season !== selectedSeason || !currentSeasonEpisodes?.length) return;
+    const ep = currentSeasonEpisodes.find((e) => e.episode_number === want.episode) || currentSeasonEpisodes[0];
+    pendingPlayRef.current = null;
+    if (ep) playEpisode(ep);
+  }, [selectedSeason, currentSeasonEpisodes, playEpisode]);
 
   // the next episode as a watch-party item (the host's up next moves everyone)
   const upNextPartyItem = useMemo(
@@ -1779,7 +1808,7 @@ export default function TVPage({
             media_type: "tv",
             title: d?.name || item.name || item.title || "",
             poster_path: d?.poster_path || item.poster_path,
-            season: selectedSeason,
+            season: nextEp._nextSeason ?? selectedSeason,
             episode: nextEp.episode_number,
           }
         : null,
@@ -1798,7 +1827,7 @@ export default function TVPage({
     upNextQueue,
   } = useAutoplay({
     nextEp,
-    playEpisode,
+    playEpisode: playNextEpisode,
     restricted,
     partyItem: upNextPartyItem,
     // "Play now" / the countdown: mark the episode you just finished as watched
@@ -2218,7 +2247,7 @@ export default function TVPage({
                         ? upNextQueue.season != null
                           ? `S${upNextQueue.season} · E${upNextQueue.episode}`
                           : ""
-                        : `S${selectedSeason} · E${nextEp?.episode_number}`
+                        : `S${nextEp?._nextSeason ?? selectedSeason} · E${nextEp?.episode_number}`
                     }
                     image={
                       upNextQueue
