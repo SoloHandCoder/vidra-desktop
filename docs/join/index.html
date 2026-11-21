@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Join a Vidra watch party</title>
+<meta name="description" content="You're invited to watch together on Vidra.">
+<meta property="og:title" content="Join my Vidra watch party 🍿">
+<meta property="og:description" content="Tap to open Vidra and watch together: play, pause and chat stay in sync.">
+<meta property="og:image" content="https://solohandcoder.github.io/vidra-desktop/og.png">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" href="../icon.png">
+<style>
+  :root { --bg:#0a0a0a; --card:#141416; --line:#26262b; --text:#f2f2f4; --muted:#9a9aa3; --red:#e50914; --red2:#ff2e38; }
+  * { box-sizing: border-box; }
+  html, body { margin:0; min-height:100%; background:var(--bg); color:var(--text); font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif; }
+  body { display:flex; align-items:center; justify-content:center; padding:24px 16px; min-height:100vh;
+         background: radial-gradient(900px 500px at 15% -10%, rgba(229,9,20,.28), transparent 60%), radial-gradient(700px 500px at 110% 110%, rgba(229,9,20,.16), transparent 60%), var(--bg); }
+  .card { width:100%; max-width:440px; background:var(--card); border:1px solid var(--line); border-radius:22px; padding:28px 24px; text-align:center; box-shadow:0 30px 80px rgba(0,0,0,.55); }
+  .logo { width:76px; height:76px; border-radius:20px; display:block; margin:0 auto 14px; box-shadow:0 10px 30px rgba(229,9,20,.35); }
+  h1 { font-size:24px; margin:0 0 6px; letter-spacing:.2px; }
+  p { margin:0; color:var(--muted); }
+  .code { margin:20px 0 6px; font:800 30px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; letter-spacing:4px; }
+  .btn { display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:14px 16px; margin-top:12px; border-radius:14px; border:1px solid var(--line); background:#1c1c20; color:var(--text); font-weight:700; font-size:16px; text-decoration:none; cursor:pointer; }
+  .btn.primary { background:linear-gradient(180deg,var(--red2),var(--red)); border-color:transparent; color:#fff; box-shadow:0 10px 26px rgba(229,9,20,.35); }
+  .btn:active { transform:scale(.98); }
+  .small { font-size:13px; margin-top:14px; }
+  .get { margin-top:22px; padding-top:18px; border-top:1px solid var(--line); }
+  .get h2 { font-size:14px; font-weight:700; color:var(--muted); margin:0 0 10px; text-transform:uppercase; letter-spacing:1.2px; }
+  .row { display:flex; flex-wrap:wrap; gap:8px; justify-content:center; }
+  .row a { flex:1 1 30%; min-width:110px; padding:10px 8px; border-radius:12px; border:1px solid var(--line); color:var(--text); text-decoration:none; font-size:14px; font-weight:600; background:#18181b; }
+  .row a:hover, .btn:hover { border-color:#3a3a42; }
+  .err { color:#ff8a8f; }
+  .hide { display:none; }
+</style>
+</head>
+<body>
+<main class="card">
+  <img class="logo" src="../icon.png" alt="Vidra">
+  <div id="ok">
+    <h1>You're invited to a watch party</h1>
+    <p>Play, pause and chat stay in sync with your friends.</p>
+    <div class="code" id="code">·····-·····</div>
+    <a class="btn primary" id="open" href="#">▶ Open in Vidra</a>
+    <button class="btn" id="copy" type="button">Copy party code</button>
+    <p class="small">Nothing happens? Open Vidra → <b>Watch party</b> → <b>Join</b> and enter the code.</p>
+  </div>
+  <div id="bad" class="hide">
+    <h1>This invite link isn't complete</h1>
+    <p class="err">Ask your friend to send the invite again, or ask them for the party code.</p>
+  </div>
+  <div class="get">
+    <h2>Don't have Vidra yet?</h2>
+    <div class="row">
+      <a href="https://github.com/SoloHandCoder/vidra-android/releases/latest">Android</a>
+      <a href="https://github.com/SoloHandCoder/vidra-ios/releases/latest">iPhone</a>
+      <a href="https://github.com/SoloHandCoder/vidra-desktop/releases/latest">Windows · Mac · Linux</a>
+    </div>
+  </div>
+</main>
+<script>
+(function () {
+  // the code comes after # (or ?code=): 10 letters/digits, shown as ABCDE-FGHJK
+  var raw = (location.hash.slice(1) || new URLSearchParams(location.search).get("code") || "").toUpperCase().replace(/[^A-Z0-9]/g, "");
+  if (raw.length !== 10) {
+    document.getElementById("ok").className = "hide";
+    document.getElementById("bad").className = "";
+    return;
+  }
+  var code = raw.slice(0, 5) + "-" + raw.slice(5);
+  var link = "vidra://party/" + code;
+  document.getElementById("code").textContent = code;
+  var open = document.getElementById("open");
+  open.href = link;
+  var copy = document.getElementById("copy");
+  copy.addEventListener("click", function () {
+    var done = function () { copy.textContent = "✓ Copied"; setTimeout(function () { copy.textContent = "Copy party code"; }, 1600); };
+    if (navigator.clipboard) navigator.clipboard.writeText(code).then(done, function () {});
+  });
+  // try to open the app right away (phones may need the tap on the button)
+  setTimeout(function () { location.href = link; }, 350);
+})();
+</script>
+</body>
+</html>

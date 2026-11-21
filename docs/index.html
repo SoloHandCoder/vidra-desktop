@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vidra</title>
+<meta name="description" content="Movies, series and anime. No ads. Watch together. For Android, iPhone, Windows, Mac and Linux.">
+<meta property="og:title" content="Vidra">
+<meta property="og:description" content="Movies, series and anime. No ads. Watch together.">
+<meta property="og:image" content="https://solohandcoder.github.io/vidra-desktop/og.png">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="icon" href="icon.png">
+<style>
+  :root { --bg:#0a0a0a; --line:#26262b; --text:#f2f2f4; --muted:#9a9aa3; --red:#e50914; --red2:#ff2e38; }
+  * { box-sizing:border-box; }
+  body { margin:0; min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px 16px; color:var(--text); font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+         background: radial-gradient(900px 500px at 15% -10%, rgba(229,9,20,.28), transparent 60%), var(--bg); }
+  main { max-width:760px; width:100%; text-align:center; }
+  img.hero { width:100%; border-radius:18px; border:1px solid var(--line); box-shadow:0 30px 80px rgba(0,0,0,.6); }
+  h1 { font-size:22px; margin:26px 0 8px; } p { color:var(--muted); margin:0 0 18px; }
+  .row { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+  .row a { padding:12px 18px; border-radius:14px; font-weight:700; text-decoration:none; color:#fff; background:linear-gradient(180deg,var(--red2),var(--red)); }
+  .row a.alt { background:#18181b; border:1px solid var(--line); }
+</style>
+</head>
+<body>
+<main>
+  <img class="hero" src="og.png" alt="Vidra">
+  <h1>Get Vidra</h1>
+  <p>Free and open source. Your library syncs between all your devices.</p>
+  <div class="row">
+    <a href="https://github.com/SoloHandCoder/vidra-android/releases/latest">Android</a>
+    <a href="https://github.com/SoloHandCoder/vidra-ios/releases/latest">iPhone &amp; iPad</a>
+    <a href="https://github.com/SoloHandCoder/vidra-desktop/releases/latest">Windows · Mac · Linux</a>
+    <a class="alt" href="https://github.com/SoloHandCoder/vidra-desktop">Source code</a>
+  </div>
+</main>
+</body>
+</html>
