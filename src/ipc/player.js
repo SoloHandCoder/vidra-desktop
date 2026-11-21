@@ -24,7 +24,12 @@ const TRUSTED_UPDATE_SOURCES = [
     origin: "https://github.com",
     // Must match the full repo path so an attacker can't use
     // a different repo on github.com to serve a malicious binary.
-    pathPrefix: "/truelockmc/streambert/releases/download/",
+    // Vidra's releases (the repo was called streambert-desktop before the rename;
+    // GitHub still redirects the old path).
+    pathPrefix: [
+      "/SoloHandCoder/vidra-desktop/releases/download/",
+      "/SoloHandCoder/streambert-desktop/releases/download/",
+    ],
     redirectHosts: [
       "github.com",
       "objects.githubusercontent.com",
@@ -47,7 +52,8 @@ function findTrustedUpdateSource(parsedUrl) {
     TRUSTED_UPDATE_SOURCES.find(
       (s) =>
         parsedUrl.origin === s.origin &&
-        parsedUrl.pathname.startsWith(s.pathPrefix),
+        // GitHub owner / repo names are case-insensitive
+        [].concat(s.pathPrefix).some((pre) => parsedUrl.pathname.toLowerCase().startsWith(pre.toLowerCase())),
     ) || null
   );
 }
