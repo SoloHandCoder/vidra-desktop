@@ -1,267 +1,198 @@
-# Vidra Desktop
+<p align="center">
+  <img src=".github/assets/banner.webp" alt="Vidra: movies, series and anime. No ads. Watch together." width="100%">
+</p>
 
-[![Release](https://img.shields.io/github/v/release/SoloHandCoder/vidra-desktop?style=for-the-badge)](https://github.com/SoloHandCoder/vidra-desktop/releases/latest)
-[![Android app](https://img.shields.io/badge/Android-vidra--android-3DDC84?style=for-the-badge&logo=android&logoColor=white)](https://github.com/SoloHandCoder/vidra-android)
+<p align="center">
+  <a href="https://github.com/SoloHandCoder/vidra-desktop/releases/latest"><img src="https://img.shields.io/github/v/release/SoloHandCoder/vidra-desktop?style=for-the-badge&label=latest&color=E50914" alt="Latest release"></a>
+  <a href="https://github.com/SoloHandCoder/vidra-desktop/releases"><img src="https://img.shields.io/github/downloads/SoloHandCoder/vidra-desktop/total?style=for-the-badge&color=222" alt="Downloads"></a>
+  <img src="https://img.shields.io/badge/Windows-10%20%7C%2011-0078D4?style=for-the-badge&logo=windows&logoColor=white" alt="Windows 10 and 11">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-GPL--3.0-222?style=for-the-badge" alt="GPL-3.0"></a>
+</p>
 
-Stream and download any movie, TV series or anime, with no ads or tracking[*](#privacy-disclaimer). This is the desktop version that goes with the [Vidra Android app](https://github.com/SoloHandCoder/vidra-android). Both apps share your library through cloud sync.
+<p align="center">
+  <a href="https://github.com/SoloHandCoder/vidra-desktop/releases/latest"><img src="https://img.shields.io/badge/Download_for_Windows-E50914?style=for-the-badge&logo=windows&logoColor=white" alt="Download for Windows" height="44"></a>
+</p>
 
-![Logo](public/logo.svg)
+<p align="center">
+  Also on <a href="https://github.com/SoloHandCoder/vidra-android"><b>Android</b></a> and <a href="https://github.com/SoloHandCoder/vidra-ios"><b>iPhone &amp; iPad</b></a>. Your library syncs between all of them.
+</p>
 
-[Download](https://github.com/SoloHandCoder/vidra-desktop/releases/latest) · [Installation](#installation) · [Building from source](#building-from-source)
+<p align="center">
+  <img src=".github/assets/d_home.webp" alt="Vidra home screen" width="100%">
+</p>
 
-## What's in this version
-- ☁️ **Cloud sync:** your watchlist, history, progress, watched episodes, ratings, lists, watch stats and profiles sync with your phone and other computers through a private GitHub Gist (Settings → Cloud Sync).
-- 👥 **Profiles:** everyone in the house gets their own history, watchlist and progress.
-- ⭐ **Your ratings and lists:** rate titles 1 to 5 stars, sort your watchlist by your own rating, and group titles into custom lists.
-- 📊 **Watch stats:** watch time, day streaks, top genres and titles, plus a yearly recap.
-- 💬 **Subtitle style and timing:** change subtitle size, color, background and position, and fix subtitles that are out of sync.
-- 🎬 **Trailers that load:** healthy Invidious servers are found automatically, with YouTube as a fallback.
-- 📅 **Coming up:** next episodes of your shows and release dates of movies on your watchlist, with a calendar. Plus "Because you watched …" rows.
-- ▶️ **Built-in player for downloads**, a **Download season** button, **pause / resume**, **smart downloads** (the next 1–3 episodes download automatically) and a **storage limit**.
-- 📺 **Chromecast:** send what you're watching, or a download, to your TV.
-- 🌍 **Your language:** English, Deutsch, Español, Français, Italiano, Português (follows your system language).
-- 🔒 **App lock** with a PIN, **taskbar shortcuts** ("Continue watching"), TMDB / IMDb links in search, and smoother animations.
-- 🔄 **Updates** come from this repo's releases.
+## ✨ What you get
 
-## Features
-- 🎦 **Streaming:** Stream any Movie, Anime or TV Series from around the World.
-- 📥 **Downloading:** Download anything you want to watch.
-- 📃 **Subtitles:** Download and manage Subtitles.
-- ⚙️ **Customizability:** Customize the Interface and Features to your unique needs.
-- 📚 **Library:** Track what you watched, save stuff you want to watch and manage your Downloads.
-- ✨ **Trending:** Discover new things to Watch every Day.
-- 🛡️ **Privacy:** Completely Ads and Tracker free, forever.
-- ⚡ **Speed:** Stream faster than any Browser can, download with multithreading.
+<table>
+<tr>
+<td width="50%" valign="top">
 
-![Explore new Stuff](screenshots/trending.png)
-![Watch TV Series](screenshots/series.png)
-![Watch Movies](screenshots/movie.png)
-![Watch Anime](screenshots/anime.png)
-![Without any Ads or Trackers](screenshots/adblock.png)
-![Customize](screenshots/customize-1.png)
-![Customize](screenshots/customize-2.png)
-![Download Subtitles](screenshots/subs.png)
-![Download Everything](screenshots/download.png)
----
+**🎬 Everything in one place**<br>
+Movies, series and anime with posters, trailers, cast and ratings. "Because you watched…" rows, a Discover page with collections, genres and filters, and pages for actors and directors.
 
-## Streaming
-The Application gets video streams from different hosters/aggregators, see [PLAYER_SOURCES](src/utils/api.js). <br></br>
-It fetches Information for Images, Info Texts, Search and Homepage from [tmdb](https://www.themoviedb.org/).
+**👥 Watch parties**<br>
+Play, pause and skipping stay in sync with friends on other computers and phones. Chat, emoji reactions, a host, a ready check with a 3‑2‑1 countdown, a shared queue and polls. End‑to‑end encrypted.
 
----
+**⏭️ Up next**<br>
+When the credits roll, the next episode starts after a short countdown, and the one you finished is marked as watched.
 
-## Downloading
-You can download those Video Streams because the Program sources Links to their .m3u8 Playlist Files ([similar to this Browser Extension](https://addons.mozilla.org/en-US/firefox/addon/m3u8-link-finder/)). <br></br>
-Once you click 'Download' these Links are used to download the Full Movie/TV Episode using [this Program](https://github.com/truelockmc/vid-dl-cli-only). You can then watch them In-App or take the Files on any Storage Medium you want.
+**📥 Downloads**<br>
+Download movies or whole seasons in the quality you pick and play them in the built‑in player. Smart downloads fetch the next episodes for you.
 
----
+</td>
+<td width="50%" valign="top">
 
-## Anime
-You can also watch Anime, the App checks if a Movie or Series is an Anime and then sources its Metadata from [AniList](https://anilist.co/) instead of [tmdb](https://www.themoviedb.org/). <br></br>
-Media Files for Animes are scraped from AllManga.to (i stole this mechanic from [ani-cli](https://github.com/pystardust/ani-cli)). The App directly gets .mp4 Files and doesnt evem show you the AllManga website, you can also download these Files, just like any other Content.
+**☁️ Sync and profiles**<br>
+Watchlist, progress, ratings, lists and stats sync with your phone. Everyone gets a profile; kids profiles have an age limit and a PIN.
 
+**🎨 Make it yours**<br>
+Eleven themes plus Auto, any accent colour, subtitle size, colour and timing, and six app languages.
 
-## Requirements
+**🔔 Never miss an episode**<br>
+Release reminders, a calendar of what's coming, Trakt sync, watch‑time goals and a yearly recap card.
 
-- [Node.js](https://nodejs.org/) (>=22.12.0) installed (only if you aren't using [prebuilt Binaries](https://github.com/SoloHandCoder/vidra-desktop/releases/latest))
-- A free TMDB API Read Access Token ([Guide on how to get one](tmdb-tutorial.md))
-- For downloading, [this Program](https://github.com/truelockmc/vid-dl-cli-only/releases/latest) somewhere on your PC and [ffmpeg](https://ffmpeg.org/download.html) installed
+**🛡️ Clean and fast**<br>
+Ads and trackers are blocked, popups can't hijack the player, and it streams straight from the source. Chromecast and taskbar shortcuts included.
 
----
-## Installation
-On first launch you'll be prompted to enter your TMDB API key. ([Guide on how to get one](tmdb-tutorial.md))
-It's saved locally, you only need to do this once.
+</td>
+</tr>
+</table>
 
-### Linux, Manual (.deb / .AppImage / .pacman)
+## 📸 A closer look
 
-Download the latest `.deb` `.pacman` or `.AppImage` from the [Releases](https://github.com/SoloHandCoder/vidra-desktop/releases/latest) page.
-```bash
-# .deb
-sudo dpkg -i streambert_*.deb
+<table>
+<tr>
+<td width="50%"><img src=".github/assets/d_show.webp" alt="A show page with seasons and episodes"><p align="center"><sub><b>Shows:</b> seasons, episodes, your progress</sub></p></td>
+<td width="50%"><img src=".github/assets/d_movie.webp" alt="A movie page with its collection"><p align="center"><sub><b>Movies:</b> collections, trailers, cast</sub></p></td>
+</tr>
+<tr>
+<td width="50%"><img src=".github/assets/d_discover.webp" alt="The Discover page"><p align="center"><sub><b>Discover:</b> collections, genres, filters</sub></p></td>
+<td width="50%"><img src=".github/assets/d_library.webp" alt="Your library"><p align="center"><sub><b>Library:</b> continue watching, watchlist, stats</sub></p></td>
+</tr>
+<tr>
+<td width="50%"><img src=".github/assets/d_search.webp" alt="Search"><p align="center"><sub><b>Search:</b> movies, series and anime at once</sub></p></td>
+<td width="50%"><img src=".github/assets/d_party_chat.webp" alt="Watch party panel with chat"><p align="center"><sub><b>Watch party:</b> chat, host controls, queue</sub></p></td>
+</tr>
+</table>
 
-# Arch Linux (.pacman)
-sudo pacman -U streambert-*.pacman
+## 🎉 Watch together
 
-# .AppImage (you can also do it with Gearlever)
-chmod +x Vidra-x64.AppImage && ./Vidra-x64.AppImage
-```
+<p align="center">
+  <img src=".github/assets/d_party.gif" alt="Messages and reactions popping up during a watch party" width="62%">
+</p>
 
-### Windows
+1. Open a movie or show and click **Watch party → Start a party**.
+2. Click **Invite** and send the link, or just the code. Friends can join from Windows, Android or iPhone.
+3. Watch in sync. Messages and reactions pop up over the video.
 
-Download the latest `Vidra Setup *.exe` from the [Releases](https://github.com/SoloHandCoder/vidra-desktop/releases/latest) page and run it.
+**The host** decides who controls playback, runs a **ready check** so everyone starts together, keeps the **queue** of what's next and can start a **poll** about it.
 
-### macOS
-Download the latest `Vidra-*-universal.dmg` from the [Releases](https://github.com/SoloHandCoder/vidra-desktop/releases/latest) page, open it and drag Vidra to your Applications folder.
+## 🎨 Themes
 
----
-
-
-## Building from Source
-1. Install dependencies:
-```bash
-npm install
-```
-2. Build
-```bash
-npm run dist:win   
-```
-or
-```bash
-npm run dist:linux 
-```
-or (for Arch Linux)
-```bash
-npm run dist:arch
-```
-or (for an AppImage only)
-```bash
-npm run dist:appimage
-```
-or (for a .deb only)
-```bash
-npm run dist:deb
-```
-or (for a .rpm only)
-```bash
-npm run dist:rpm
-```
-or (for macOS)
-```bash
-npm run dist:mac
-```
-or (build all platforms at once)
-```bash
-npm run dist
-```
-
-> [!IMPORTANT]
-> If you are building/installing on Arch Linux and encounter errors, you may need these libraries:
-> - **libcrypt.so.1 error:** `sudo pacman -S libxcrypt-compat`
-> - **http-parser dependency error:** `yay -S http-parser` (from AUR)
-
-## Credits
-Vidra is based on Streambert, which was created by [truelockmc](https://github.com/truelockmc/streambert). Vidra was called "Streambert Desktop" until version 2.18. This version is built on their work, and all credit for the original app goes to them.
-
-## License
-This project is open-source software licensed under the GNU General Public License v3.0 [(GPL-3.0)](LICENSE).
-
-Forks may be created but they MUST stay open-sourced.
-
-## Contributing
-Ideas and bug reports for this version are welcome in this repo's issues. Changes to the core app are best sent to the [original project](https://github.com/truelockmc/streambert).
-
-## Privacy Disclaimer
-Vidra itself does not collect ANY data. There is no centralized service which the app relies on.
-However, the streaming sources and github (for downloading updates in-app) may still collect your data.
-
-Vidra has built-in tracker/- and adblocking, but obviously that is not perfect.
-
-## Legal Disclaimer
-
-**IMPORTANT: This application is for educational and personal use only.**
-
-- Vidra does not host, store, or distribute any copyrighted content
-- All content is sourced from third-party providers and websites
-- Users are solely responsible for ensuring they have legal rights to access any content
-- The developer does not endorse or encourage copyright infringement
-- Users must comply with all applicable laws in their jurisdiction
-- Any legal issues should be directed to the actual content providers
-- This app functions as a search engine aggregator only
-- No copyrighted material is stored on my side
-
-## Legal Notice
-
-This application is provided "as is" for educational purposes. The developer:
-- Does not claim ownership of any content
-- Does not profit from copyrighted material in any way
-- Does not control third-party content providers
-- Encourages users to support content creators through legal means
-
+<p align="center">
+  <img src=".github/assets/d_themes.gif" alt="Switching between themes" width="80%">
+</p>
 
 <details>
-    <summary>Project Structure</summary>
-    
+<summary>All themes side by side</summary>
+<p align="center"><img src=".github/assets/themes.webp" alt="Dark, Midnight, Nord, Dracula, Forest, Rosé, Light and Sepia"></p>
+</details>
+
+## 📱 On your phone too
+
+<p align="center">
+  <img src=".github/assets/phones.webp" alt="Vidra on a phone" width="90%">
+</p>
+<p align="center">
+  <a href="https://github.com/SoloHandCoder/vidra-android"><b>Vidra for Android</b></a> · <a href="https://github.com/SoloHandCoder/vidra-ios"><b>Vidra for iPhone &amp; iPad</b></a>
+</p>
+
+## 💻 Install
+
+### Windows
+Download the latest **`Vidra-Setup-*.exe`** from **[Releases](https://github.com/SoloHandCoder/vidra-desktop/releases/latest)** and run it. Updates are built in (Settings → Check for updates).
+
+### macOS and Linux
+There are no ready-made builds yet, but you can build them yourself (see [Building from source](#-building-from-source)): `npm run dist:mac`, `dist:appimage`, `dist:deb`, `dist:arch` or `dist:rpm`.
+
+### First start
+Paste your free **TMDB read access token** ([how to get one](tmdb-tutorial.md)). It's stored on your computer and used to load titles, posters and info. Subtitles from Wyzie need a free key too ([guide](wyzie-tutorial.md)).
+
+> [!NOTE]
+> Vidra was called **Streambert Desktop** until 2.18. It installs over the old app as an update and keeps all your data.
+
+## ❓ FAQ
+
+<details>
+<summary><b>Is it free? Are there ads?</b></summary>
+
+Free and open source. There are no ads in the app, and ad and tracker requests from the video sources are blocked as well as possible.
+</details>
+
+<details>
+<summary><b>Where do the videos come from?</b></summary>
+
+Vidra loads information from <a href="https://www.themoviedb.org/">TMDB</a> (and <a href="https://anilist.co/">AniList</a> for anime) and plays streams from third-party embed sources, listed in <code>src/utils/api.js</code>. Downloads save those streams (HLS playlists) to your computer.
+</details>
+
+<details>
+<summary><b>How does sync work?</b></summary>
+
+Settings → Cloud Sync. Your data goes into a private GitHub Gist under your own account (the token only needs the <code>gist</code> permission). There's no Vidra server.
+</details>
+
+<details>
+<summary><b>Do my friends need Vidra for a watch party?</b></summary>
+
+Yes, on any platform. Everyone should pick the same source. Messages go through a public relay but are end‑to‑end encrypted with the party code, so the relay only sees scrambled data.
+</details>
+
+## 🔧 Building from source
+
+Requirements: [Node.js](https://nodejs.org/) 22.12 or newer.
+
+```bash
+npm install
+npm start            # run it
+npm run dist:win     # Windows installer
+npm run dist:mac     # macOS (universal .dmg)
+npm run dist:linux   # Linux (.AppImage, .deb, …)
 ```
-Project Root
-├── index.html
-├── main.js
-├── package.json
-├── preload.js
-├── vite.config.js
-├── LICENSE
-├── README.md
-├── public
-│   ├── icon.png
-│   ├── installer-sidebar.bmp
-│   └── logo.svg
-├── screenshots
-│   ├── adblock.png
-│   ├── anime.png
-│   ├── api-settings_tmdb.png
-│   ├── application_tmdb.png
-│   ├── download.png
-│   ├── icon.png
-│   ├── movie.png
-│   ├── personal-use_tmdb.png
-│   ├── series.png
-│   ├── setup.png
-│   ├── signup_tmdb.png
-│   ├── subs.png
-│   ├── token_tmdb.png
-│   └── trending.png
-└── src
-    ├── App.jsx
-    ├── main.jsx
-    ├── components
-    │   ├── BlockedStatsModal.jsx
-    │   ├── CloseConfirmModal.jsx
-    │   ├── DownloadModal.jsx
-    │   ├── ErrorBoundary.jsx
-    │   ├── Icons.jsx
-    │   ├── KeyboardShortcutsModal.jsx
-    │   ├── MediaCard.jsx
-    │   ├── SearchModal.jsx
-    │   ├── SetupScreen.jsx
-    │   ├── Sidebar.jsx
-    │   ├── SubtitleDownloaderModal.jsx
-    │   ├── TrailerModal.jsx
-    │   ├── TrendingCarousel.jsx
-    │   ├── UpdateModal.jsx
-    │   └── WindowTitlebar.jsx
-    ├── ipc
-    │   ├── allmanga.js
-    │   ├── blockStats.js
-    │   ├── downloads.js
-    │   ├── player.js
-    │   ├── storage.js
-    │   └── subtitles.js
-    ├── pages
-    │   ├── DownloadsPage.jsx
-    │   ├── HomePage.jsx
-    │   ├── LibraryPage.jsx
-    │   ├── MoviePage.jsx
-    │   ├── SettingsPage.jsx
-    │   └── TVPage.jsx
-    ├── styles
-    │   ├── global.css
-    │   └── fonts
-    │       ├── bebas-neue-regular.woff2
-    │       ├── dm-sans-300.woff2
-    │       ├── dm-sans-500.woff2
-    │       ├── dm-sans-600.woff2
-    │       └── dm-sans-regular.woff2
-    └── utils
-        ├── ageRating.js
-        ├── aniSkip.js
-        ├── api.js
-        ├── appearance.js
-        ├── backup.js
-        ├── episodeMappings.js
-        ├── homeLayout.js
-        ├── storage.js
-        ├── subtitles.js
-        ├── updates.js
-        ├── useBlockedStats.js
-        └── useRatings.js
+Other targets: `dist:appimage`, `dist:deb`, `dist:rpm`, `dist:arch`, or `dist` for all of them.
+
+> [!IMPORTANT]
+> On Arch Linux you may need `libxcrypt-compat` (for a `libcrypt.so.1` error) and `http-parser` from the AUR.
+
+<details>
+<summary><b>Project structure</b></summary>
+
+```
+index.js            main process: windows, sessions, ad blocking, lifecycle
+preload.js          the window.electron API for the UI
+src/
+├── App.jsx         the app shell and routing
+├── pages/          Home, Movie, TV, Library, Downloads, Settings
+├── components/     cards, modals, player bits, sidebar
+├── extras/         features shared with the phone apps (Discover, party, goals, …)
+├── ipc/            main-process handlers: downloads, player, subtitles, cast, links
+├── sync/           cloud sync (GitHub Gist)
+└── utils/          TMDB API, storage, ratings, updates, appearance
+public/             icons, the built-in player (sb-player.*)
 ```
 </details>
+
+## 💛 Credits
+
+Vidra is based on **[Streambert](https://github.com/truelockmc/streambert)** by truelockmc. All credit for the original app goes to them. Ideas and bug reports for Vidra are welcome in this repo's issues; changes to the core app are best sent to the original project.
+
+Movie and show data comes from [TMDB](https://www.themoviedb.org/); Vidra isn't endorsed or certified by TMDB.
+
+## 🔒 Privacy
+
+Vidra doesn't collect any data and doesn't depend on a server of its own. The video sources, TMDB, and GitHub (for updates and sync) can still see your requests. Ad and tracker blocking is built in, but no blocker is perfect.
+
+## ⚖️ Legal
+
+Vidra is for personal and educational use. It doesn't host, store or distribute any content: it shows information from TMDB and plays what third-party websites provide, like a search engine. You are responsible for making sure you're allowed to watch what you open, under the laws where you live. Please support creators through legal services.
+
+Licensed under the [GPL-3.0](LICENSE). Forks must stay open source.
