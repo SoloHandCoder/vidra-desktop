@@ -168,10 +168,27 @@ export function usePlayerExtras({ webviewRef, active, info, offsetKey }) {
       if (stopped) return;
       if (r?.playing && infoRef.current?.id && elapsed > 0) trackWatchSecond(infoRef.current, elapsed);
       if (r && r.d > 0 && infoRef.current?.id) traktScrobble(infoRef.current, (r.t / r.d) * 100, !!r.playing);
+      // where the player is (used by "Skip intro")
+      const ps = r && r.d > 0 ? { t: r.t, d: r.d, playing: !!r.playing, at: Date.now() } : null;
+      window.__sbPlayerState = () => (ps && Date.now() - ps.at < 3500 ? ps : null);
       const inf2 = infoRef.current;
       reportPlayer(
         inf2?.id ? { id: inf2.id, media_type: inf2.media_type, title: inf2.title, season: inf2.season, episode: inf2.episode } : null,
         r && r.d > 0 ? { playing: !!r.playing, t: r.t } : null,
+      );
+    };
+    // jump to a time in whatever frame holds the video (used by "Skip intro")
+    window.__sbSeekPlayer = (t) => {
+      const wv = webviewRef.current;
+      let id = null;
+      try {
+        id = wv.getWebContentsId();
+      } catch {
+        return;
+      }
+      window.electron.playerTick(
+        id,
+        `(() => { const v = [...document.querySelectorAll("video")].find((x) => x.duration > 120); if (v) v.currentTime = ${Number(t) || 0}; return null; })()`,
       );
     };
     // watch party: follow what the others do
